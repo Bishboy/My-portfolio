@@ -5,12 +5,12 @@ import banner from "../assets/img/banner-bg.png";
 
 const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
-  const toRotate = ["Web Developer", "web Designer"];
+  const toRotate = ["Web Developer.", "Web Designer."];
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [index, setIndex] = useState(1);
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const period = 2000;
+  const period = 2000;  
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -38,7 +38,7 @@ const Banner = () => {
       setIsDeleting(true);
       setIndex((prevIndex) => prevIndex - 1);
       setDelta(period);
-    } else if (isDeleting && updatedText === "") {
+    } else if (isDeleting && updatedText === "W") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
@@ -52,18 +52,25 @@ const Banner = () => {
     <section className=" py-[6rem] text-white px- relative">
       {" "}
       <div className="absolute top-0 z-10">
-        <img src={banner} alt="" className="w-full h-auto object-cover"  />{" "}
+        <img
+          src={banner}
+          alt=""
+          className="w-full  lg:h-auto h-screen  object-cover"
+        />{" "}
       </div>
-      <div className="flex items-center w-[90%] relative z-20 mx-auto">
+      <div className="flex flex-col lg:flex-row gap-4 items-center w-[90%] relative z-20 mx-auto">
         {" "}
-        <div className="flex-1 gap-[4rem] flex flex-col">
-          <span>Welcome to my Portfolio</span>
-          <h1>
-            {`Hi I'm Emmanuel`} <span>{text}</span>
+        <div className="flex-1 lg:gap-[3rem]    sm:gap-[2rem] gap-[1rem]  flex flex-col">
+          <span className="lg:text-[1.5rem] bg-gradient-to-r from-purple-950 to-purple-600 rounded-2xl hover:scale-105 duration-500 w-fit py-2 px-6 sm:text-[1.2rem] text-base font-bold">
+            Welcome to my <span className="strokeText">Portfolio</span>{" "}
+          </span>
+          <h1 className="lg:text-[3rem] flex flex-col sm:text-[2rem] text-[1.6rem] font-bold">
+            {`Hi, I'm Emmanuel a`} <span className="strokeText">{text}</span>
           </h1>
-          <p>
-            A placeholder text commonly used to demonstrate the visual form of a
-            document or a typeface without relying on meaningful content.
+          <p className="sm:text-base text-sm">
+            I'm a passionate frontend developer, that combines creativity and
+            technical prowess to craft visually stunning and user-friendly web
+            experiences.
           </p>
           <button className="relative px-6 py-2 w-fit bg-white overflow-hidden rounded-lg text-black border border-black group hover:text-white ">
             <span className="relative flex items-center gap-2 font-bold z-10">
@@ -73,8 +80,12 @@ const Banner = () => {
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
         </div>
-        <div className="flex-1 relative z-20">
-          <img src={headerImg} alt="header image" className="w-full h-auto" />{" "}
+        <div className="flex-1 relative  z-20">
+          <img
+            src={headerImg}
+            alt="header image"
+            className=" lg:w-full animate-updown sm:w-[30rem] w-[25rem] h-auto"
+          />{" "}
         </div>
       </div>
     </section>

@@ -28,7 +28,7 @@ const Header = () => {
     <header>
       <nav
         className={`${
-          scroll ? "bg-slate-400 z-50 fixed " : ""
+          scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed  " : ""
         } px-6 w-full  flex items-center justify-between top-0 z-50 fixed `}
       >
         <img src={logo} alt={logo} className="w-[3rem] h-[4rem]" />
