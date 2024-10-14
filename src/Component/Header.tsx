@@ -6,8 +6,8 @@ import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";
 
 const Header = () => {
-  const [active, setActive] = useState("");
-  const [scroll, setScroll] = useState(false);
+  const [active, setActive] = useState<string>("");
+  const [scroll, setScroll] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {

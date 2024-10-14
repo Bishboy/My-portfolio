@@ -6,7 +6,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import logo from "../assets/img/logo.svg";
 import html from "../assets/img/html-removebg-preview.png";
 import css from "../assets/img/css-removebg-preview.png";
 import js from "../assets/img/Js-removebg-preview.png";
@@ -15,7 +14,13 @@ import typescript from "../assets/img/ts-removebg-preview.png";
 import next from "../assets/img/next-removebg-preview (1).png";
 import Reat from "../assets/img/react-removebg-preview.png";
 
-const items = [
+type Items = {
+  id:number,
+  image:string,
+  title:string
+}
+
+const items:Items[] = [
   {
     id: 1,
     image: html,
@@ -60,10 +65,10 @@ const items = [
   },
 ];
 
-const Skills = () => {
+const Skills:React.FC = () => {
   return (
     <section className=" ">
-      <div className="text-white relative z-30 w-[90%] mt-[4rem] py-[3rem] mx-auto flex flex-col items-center  gap-[1rem] md:gap-[2rem]">
+      <div className="text-white relative z-30 w-[90%] mt-[4rem] lg:py-[3rem] mx-auto flex flex-col items-center  gap-[1rem] md:gap-[2rem]">
         <h2 className="text-[3rem] uppercase font-bold strokeText hover:rotate-6 hover:text-white duration-700 ">
           Skills
         </h2>
@@ -89,7 +94,7 @@ const Skills = () => {
                 className="pl-1 basis md:basis-1/2 lg:basis-1/3 "
               >
                 <div className="p-1 ">
-                  <Card className="bg-white/100  duration-500 border-4 hover:border-purple-600">
+                  <Card className="bg-white/100  duration-500 border-4 hover:shadow-xl  hover:border-purple-600">
                     <CardContent className="flex flex-col  items-center justify-center p-6 ">
                       {/* Custom image */}
                       <img

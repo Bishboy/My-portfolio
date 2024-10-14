@@ -3,14 +3,14 @@ import { FiArrowRightCircle } from "react-icons/fi";
 import headerImg from "../assets/img/header-img.svg";
 import banner from "../assets/img/banner-bg.png";
 
-const Banner = () => {
-  const [loopNum, setLoopNum] = useState(0);
-  const toRotate = ["Web Developer.", "Web Designer."];
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(1);
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const period = 2000;  
+const Banner: React.FC = () => {
+  const [loopNum, setLoopNum] = useState<number>(0);
+  const toRotate:string[] = ["Web Developer.", "Web Designer."];
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [text, setText] = useState<string>("");
+  const [index, setIndex] = useState<number>(1);
+  const [delta, setDelta] = useState<number>(300 - Math.random() * 100);
+  const period:number = 2000;  
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -49,7 +49,7 @@ const Banner = () => {
   };
 
   return (
-    <section className=" py-[6rem] text-white px- relative">
+    <section className=" lg:py-[6rem] pt-[8rem]  text-white px- relative">
       {" "}
       <div className="absolute top-0 z-10">
         <img
@@ -84,7 +84,7 @@ const Banner = () => {
           <img
             src={headerImg}
             alt="header image"
-            className=" lg:w-full animate-updown sm:w-[30rem] w-[25rem] h-auto"
+            className=" lg:w-full animate-updown sm:w-[30rem] w-[23rem] h-auto"
           />{" "}
         </div>
       </div>
