@@ -10,7 +10,7 @@ import Project from './Component/Project'
 function App() {
   
   return (
-    <div className='max-w-[1600px]'>
+    <div className=''>
     <Header />
     <Banner />
     <Skills />

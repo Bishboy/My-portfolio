@@ -9,7 +9,7 @@ import cocktail from '../assets/img/cocktail.png'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import colorSharp from '../assets/img/color-sharp2.png'
 import { FaEye } from "react-icons/fa";
-
+import { motion } from 'framer-motion'
 
 type Items = {
     id:number,
@@ -88,6 +88,7 @@ const truncateText = (text:string, num:number)=>{
 
 const Project :React.FC = () => {
    const [showMore, setShowMore] = useState<{ [key: number]: boolean }>({});
+   const mobile = window.innerWidth <= 788 ? true : false;
    
     const toggleShowMore = (id: number) => {
       setShowMore((prevState) => ({
@@ -104,9 +105,15 @@ const Project :React.FC = () => {
         className="w-full lg:h-[70rem] h-fit object-cover object-top "
       />
       <div className="absolute top-10 mt-[5rem] flex flex-col gap-[2rem] ">
-        <h1 className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 duration-500">
+        {/* responsive issue */}
+        <motion.h1
+          initial={{ opacity: 0, y:100}}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring" }}
+          className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 "
+        >
           Project
-        </h1>
+        </motion.h1>
         <p className="text-sm hover:text-purple-200 text-center ">
           The standard chunk of Lorem Ipsum used since the 1500s is reproduced
           below for those interested. Sections 1.10.32 and 1.10.33 from "de
@@ -134,7 +141,9 @@ const Project :React.FC = () => {
                 >
                   <div className="bg-purple-500/30 w-full h-full rounded-2xl absolute z-20 px-4 py-2 group-hover:translate-y-[0rem] group-hover:skew-x-1 translate-y-[-17rem] transform duration-500 backdrop-blur-[1rem] flex flex-col justify-between">
                     <div className="flex items-center justify-between">
-                      <h2 className="font-bold uppercase text-black">{items.title}</h2>
+                      <h2 className="font-bold uppercase text-black">
+                        {items.title}
+                      </h2>
                       <div className="relative flex items-center gap-2 group">
                         <a
                           href={items.link}
@@ -157,7 +166,6 @@ const Project :React.FC = () => {
                         {showMore[items.id] ? "Show Less" : "Show More"}
                       </span>
                     </p>
-                  
                   </div>
                   <img
                     src={items.image}

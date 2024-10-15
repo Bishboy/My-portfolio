@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FiArrowRightCircle } from "react-icons/fi";
 import headerImg from "../assets/img/header-img.svg";
 import banner from "../assets/img/banner-bg.png";
+import { motion } from "framer-motion";
 
 const Banner: React.FC = () => {
   const [loopNum, setLoopNum] = useState<number>(0);
@@ -55,12 +56,17 @@ const Banner: React.FC = () => {
         <img
           src={banner}
           alt=""
-          className="w-full  lg:h-auto h-screen  object-cover"
+          className="w-[100vw]  lg:h-auto h-screen  object-cover"
         />{" "}
       </div>
       <div className="flex flex-col lg:flex-row gap-4 items-center w-[90%] relative z-20 mx-auto">
         {" "}
-        <div className="flex-1 lg:gap-[3rem]    sm:gap-[2rem] gap-[1rem]  flex flex-col">
+        <motion.div
+          initial={{ x: -100 }}
+          whileInView ={{ x: 0 }}
+          transition={{ duration: 1, stiffness: 200,type:'spring' }}
+          className="flex-1 lg:gap-[3rem]    sm:gap-[2rem] gap-[1rem]  flex flex-col"
+        >
           <span className="lg:text-[1.5rem] bg-gradient-to-r from-purple-950 to-purple-600 rounded-2xl hover:scale-105 duration-500 w-fit py-2 px-6 sm:text-[1.2rem] text-base font-bold">
             Welcome to my <span className="strokeText">Portfolio</span>{" "}
           </span>
@@ -79,14 +85,19 @@ const Banner: React.FC = () => {
             <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
-        </div>
-        <div className="flex-1 relative  z-20">
+        </motion.div>
+        <motion.div
+          initial={{ y: -400 }}
+          whileInView={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="flex-1 relative  z-20"
+        >
           <img
             src={headerImg}
             alt="header image"
             className=" lg:w-full animate-updown sm:w-[30rem] w-[23rem] h-auto"
           />{" "}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

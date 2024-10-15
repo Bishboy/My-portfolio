@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Navicon1 from "../assets/img/nav-icon1.svg";
 import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [active, setActive] = useState<string>("");
@@ -24,11 +25,30 @@ const Header = () => {
     };
   }, []);
 
+  const headVariant = {
+    hidden: {
+      y: -20,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+        stiffness: 300,
+      },
+    },
+  };
+
   return (
-    <header>
-      <nav
+    <header >
+      <motion.nav
+        variants={headVariant}
+        initial="hidden"
+        animate="visible"
         className={`${
-          scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed  " : ""
+          scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed p-3  " : ""
         } px-6 w-full  flex items-center justify-between top-0 z-50 fixed `}
       >
         <img src={logo} alt={logo} className="w-[3rem] h-[4rem]" />
@@ -103,7 +123,7 @@ const Header = () => {
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
         </div>
-      </nav>
+      </motion.nav>
     </header>
   );
 };

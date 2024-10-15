@@ -13,6 +13,7 @@ import tailwind from "../assets/img/tailwind-removebg-preview.png";
 import typescript from "../assets/img/ts-removebg-preview.png";
 import next from "../assets/img/next-removebg-preview (1).png";
 import Reat from "../assets/img/react-removebg-preview.png";
+import { motion } from "framer-motion";
 
 type Items = {
   id:number,
@@ -66,13 +67,24 @@ const items:Items[] = [
 ];
 
 const Skills:React.FC = () => {
+  const mobile = window.innerWidth <= 788 ? true : false;
+
   return (
     <section className=" ">
       <div className="text-white relative z-30 w-[90%] mt-[4rem] lg:py-[3rem] mx-auto flex flex-col items-center  gap-[1rem] md:gap-[2rem]">
-        <h2 className="text-[3rem] uppercase font-bold strokeText hover:rotate-6 hover:text-white duration-700 ">
+        <motion.h2
+          initial={{  opacity: 0, x: mobile? 150 : 500}}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{type:'spring'}}
+          className="text-[3rem] uppercase font-bold strokeText hover:rotate-6 hover:text-white  "
+        >
           Skills
-        </h2>
-        <p className="hover:translate-x-2 duration-500 hover:text-purple-300 text-sm">
+        </motion.h2>
+        <motion.p
+        initial={{opacity:0}}
+        whileInView={{opacity:1}}
+        transition={{delay:0.5, duration:0.4}}
+         className="hover:translate-x-2 duration-500 hover:text-purple-300 text-sm">
           I am a passionate front-end developer with a strong foundation in web
           technologies, including HTML, CSS, and JavaScript. I specialize in
           building responsive and visually engaging user interfaces using modern
@@ -85,7 +97,7 @@ const Skills:React.FC = () => {
           aesthetics. My work reflects attention to detail, performance
           optimization, and a constant drive to stay updated with the latest
           industry trends.
-        </p>
+        </motion.p>
         <Carousel className="lg:w-full sm:w-[80%] w-[70%]  ">
           <CarouselContent className="-ml-1">
             {items.map((item) => (
@@ -93,7 +105,8 @@ const Skills:React.FC = () => {
                 key={item.id}
                 className="pl-1 basis md:basis-1/2 lg:basis-1/3 "
               >
-                <div className="p-1 ">
+                <motion.div 
+                className="p-1 ">
                   <Card className="bg-white/100  duration-500 border-4 hover:shadow-xl  hover:border-purple-600">
                     <CardContent className="flex flex-col  items-center justify-center p-6 ">
                       {/* Custom image */}
@@ -112,7 +125,7 @@ const Skills:React.FC = () => {
                       </p>
                     </CardContent>
                   </Card>
-                </div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>
