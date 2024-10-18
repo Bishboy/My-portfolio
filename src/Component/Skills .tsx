@@ -73,7 +73,7 @@ const Skills:React.FC = () => {
     <section className=" ">
       <div className="text-white relative z-30 w-[90%] mt-[4rem] lg:py-[3rem] mx-auto flex flex-col items-center  gap-[1rem] md:gap-[2rem]">
         <motion.h2
-          initial={{  opacity: 0, x: mobile? 150 : 500}}
+          initial={{  opacity: 0, x: mobile? 150 : 300}}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{type:'spring'}}
           className="text-[3rem] uppercase font-bold strokeText hover:rotate-6 hover:text-white  "

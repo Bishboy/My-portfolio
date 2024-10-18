@@ -6,6 +6,7 @@ import './App.css'
 import { MobileNavbar } from './Component/MobileNavbar'
 import Skills from './Component/Skills '
 import Project from './Component/Project'
+import Footer from './Component/Footer'
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
     <Banner />
     <Skills />
     <Project />
+    <Footer />
    {/* <MobileNavbar /> */}
     </div>
   )

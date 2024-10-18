@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import colorSharp from '../assets/img/color-sharp2.png'
 import { FaEye } from "react-icons/fa";
 import { motion } from 'framer-motion'
+import Contact from './Contact'
 
 type Items = {
     id:number,
@@ -107,32 +108,36 @@ const Project :React.FC = () => {
       <div className="absolute top-10 mt-[5rem] flex flex-col gap-[2rem] ">
         {/* responsive issue */}
         <motion.h1
-          initial={{ opacity: 0, y:100}}
+          initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring" }}
           className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 "
         >
           Project
         </motion.h1>
-        <p className="text-sm hover:text-purple-200 text-center ">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="text-sm hover:text-purple-200 text-center "
+        >
           The standard chunk of Lorem Ipsum used since the 1500s is reproduced
           below for those interested. Sections 1.10.32 and 1.10.33 from "de
           Finibus Bonorum et Malorum" by Cicero are also reproduced in their
           exact original form,{" "}
-        </p>
+        </motion.p>
         <div className="relative">
           <Tabs
             defaultValue="account"
-            className="w-[90%]  flex flex-col items-center gap-4 mx-auto"
+            className="w-[90%]   flex flex-col items-center  gap-4 mx-auto"
           >
             <TabsList className=" flex gap-4 font-bold">
               <TabsTrigger value="account">Account</TabsTrigger>
               <TabsTrigger value="password">Password</TabsTrigger>
-              <TabsTrigger value="food"> food</TabsTrigger>
             </TabsList>
             <TabsContent
               value="account"
-              className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem] "
+              className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem] py- "
             >
               {data.map((items) => (
                 <div
@@ -159,7 +164,7 @@ const Project :React.FC = () => {
                         ? items.description
                         : truncateText(items.description, 60)}
                       <span
-                        className="text-blue-400 cursor-pointer  italic"
+                        className="text-blue-400 cursor-pointer cursor-pointer  italic"
                         onClick={() => toggleShowMore(items.id)}
                       >
                         {" "}
@@ -175,9 +180,15 @@ const Project :React.FC = () => {
                 </div>
               ))}
             </TabsContent>
-            <TabsContent value="password">
-              Change your password here.
+            <TabsContent
+              value="password"
+              className="  "
+            >
+               <Contact />
             </TabsContent>
+            {/* <TabsContent value="password" className="">
+              <Contact />
+            </TabsContent> */}
             <TabsContent value="food">Change new stuff.</TabsContent>
           </Tabs>
         </div>
