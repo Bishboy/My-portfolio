@@ -8,24 +8,20 @@ const variants: Variants = {
   closed: { opacity: 0, x: "-100%" },
 };
 
-export const MobileNavbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false); // Type the useState hook
+interface MobileNavbarProps {
+  isOpen: boolean;
+}
+
+
+export const MobileNavbar: React.FC<MobileNavbarProps> = ({ isOpen }) => {
+  // Type the useState hook
 
   return (
-    <div className="relative">
-      <div className="p-4 float-right z-50">
-        {/* Toggle Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-white bg-black  p-2 rounded"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
+    <div className="relative ">
       <motion.nav
         animate={isOpen ? "open" : "closed"}
         variants={variants}
-        className="fixed top-0 left-0 w-64 h-full z-10 bg-gray-800 text-white"
+        className="fixed top-0 left-0 w-[60%] z-40 h-screen  bg-gray-800 text-white"
       >
         <ul className="flex flex-col mt-8 space-y-4  p-4">
           <li>Home</li>

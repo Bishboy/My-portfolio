@@ -4,11 +4,16 @@ import { Button } from "@/components/ui/button";
 import Navicon1 from "../assets/img/nav-icon1.svg";
 import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";
+import { MobileNavbar } from "./MobileNavbar";
 import { motion } from "framer-motion";
+import { FaBars, FaTimes } from "react-icons/fa";
+
+
 
 const Header = () => {
   const [active, setActive] = useState<string>("");
   const [scroll, setScroll] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +47,7 @@ const Header = () => {
   };
 
   return (
-    <header >
+    <header>
       <motion.nav
         variants={headVariant}
         initial="hidden"
@@ -55,8 +60,8 @@ const Header = () => {
         <div>
           <span></span>
         </div>
-
-        <ul className="flex gap-[3rem] font-bold">
+        <MobileNavbar isOpen={isOpen} />
+        <ul className="lg:flex gap-[3rem] font-bold hidden ">
           <li
             onClick={() => setActive("home")}
             className={`${
@@ -89,7 +94,7 @@ const Header = () => {
           </li>
         </ul>
 
-        <div className="flex items-center gap-[2rem]">
+        <div className="lg:flex items-center gap-[2rem] hidden ">
           <div className="flex items-center gap-4  ">
             <a
               href="#"
@@ -123,6 +128,12 @@ const Header = () => {
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
         </div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-white bg-black relative z-50  rounded"
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </motion.nav>
     </header>
   );
