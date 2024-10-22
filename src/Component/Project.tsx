@@ -99,7 +99,7 @@ const Project :React.FC = () => {
     };
 
   return (
-    <section className="text-white relative">
+    <section id='project' className="text-white sm:py-[0rem] py-[48rem] fix relative">
       <img
         src={colorSharp}
         alt="color sharp"
@@ -137,7 +137,7 @@ const Project :React.FC = () => {
             </TabsList>
             <TabsContent
               value="account"
-              className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem] py- "
+              className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem]  "
             >
               {data.map((items) => (
                 <div
@@ -180,11 +180,8 @@ const Project :React.FC = () => {
                 </div>
               ))}
             </TabsContent>
-            <TabsContent
-              value="password"
-              className="  "
-            >
-               <Contact />
+            <TabsContent value="password" className="  ">
+              <Contact />
             </TabsContent>
             {/* <TabsContent value="password" className="">
               <Contact />

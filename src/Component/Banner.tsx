@@ -50,7 +50,10 @@ const Banner: React.FC = () => {
   };
 
   return (
-    <section className=" lg:py-[6rem] pt-[8rem]  text-white px- relative">
+    <section
+      id="home"
+      className=" lg:py-[6rem] pt-[8rem]  text-white  relative"
+    >
       {" "}
       <div className="absolute top-0 z-10">
         <img
@@ -63,9 +66,9 @@ const Banner: React.FC = () => {
         {" "}
         <motion.div
           initial={{ x: -100 }}
-          whileInView ={{ x: 0 }}
-          transition={{ duration: 1, stiffness: 200,type:'spring' }}
-          className="flex-1 lg:gap-[3rem]    sm:gap-[2rem] gap-[1rem]  flex flex-col"
+          whileInView={{ x: 0 }}
+          transition={{ duration: 1, stiffness: 200, type: "spring" }}
+          className="flex-1 lg:gap-[3rem]  items-center lg:items-start lg:text-start text-center    sm:gap-[2rem] gap-[1rem]  flex flex-col"
         >
           <span className="lg:text-[1.5rem] bg-gradient-to-r from-purple-950 to-purple-600 rounded-2xl hover:scale-105 duration-500 w-fit py-2 px-6 sm:text-[1.2rem] text-base font-bold">
             Welcome to my <span className="strokeText">Portfolio</span>{" "}
@@ -78,8 +81,8 @@ const Banner: React.FC = () => {
             technical prowess to craft visually stunning and user-friendly web
             experiences.
           </p>
-          <button className="relative px-6 py-2 w-fit bg-white overflow-hidden rounded-lg text-black border border-black group hover:text-white ">
-            <span className="relative flex items-center gap-2 font-bold z-10">
+          <button className="relative md:px-6 px-2 py-2 w-fit bg-white overflow-hidden rounded-lg text-black border border-black group hover:text-white ">
+            <span className="relative flex items-center text-xs md:text-base gap-2 font-bold z-10">
               Let's Connect <FiArrowRightCircle />
             </span>
             <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
@@ -95,7 +98,7 @@ const Banner: React.FC = () => {
           <img
             src={headerImg}
             alt="header image"
-            className=" lg:w-full animate-updown sm:w-[30rem] w-[23rem] h-auto"
+            className=" lg:w-full animate-updown  w-[18rem] h-auto"
           />{" "}
         </motion.div>
       </div>

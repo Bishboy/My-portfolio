@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
 
   return (
     <section>
-      <div className=" grid md:grid-cols-2 grid-cols-1 items-center px-2 ">
+      <div className=" grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 ">
         <div>
           <img src={contactImg} alt="Contact" />
         </div>
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
           <h2>Get in Touch</h2>
           <form
             onSubmit={handleSubmit}
-            className=" flex flex-col md:gap-[1rem]"
+            className=" flex flex-col gap-[1rem] "
           >
             <div>
               <Input

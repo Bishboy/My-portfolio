@@ -97,28 +97,29 @@ const Header = () => {
         <div className="lg:flex items-center gap-[2rem] hidden ">
           <div className="flex items-center gap-4  ">
             <a
-              href="#"
-              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-50 flex items-center justify-center border-2 shadow-lg overflow-hidden"
+              href="https://www.linkedin.com/in/uduak-emmanuel-11941b1b9/"
+              target="blank"
+              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out  flex items-center justify-center border-2 shadow-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
 
-              <img src={Navicon1} alt="" className="relative z-10" />
+              <img src={Navicon1} alt="" className="relative " />
             </a>
             <a
               href="#"
-              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-50 flex items-center justify-center border-2 shadow-lg overflow-hidden"
+              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out flex items-center justify-center border-2 shadow-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
 
-              <img src={Navicon2} alt="" className="relative z-10" />
+              <img src={Navicon2} alt="" className="relative " />
             </a>
             <a
-              href="#"
+              href="https://x.com/iam_bishboy" target="blank"
               className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-50 flex items-center justify-center border-2 shadow-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
 
-              <img src={Navicon3} alt="" className="relative z-10" />
+              <img src={Navicon3} alt="" className="relative " />
             </a>
           </div>
           {/* <Button>Lets connect</Button> */}
@@ -128,12 +129,14 @@ const Header = () => {
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
         </div>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-white bg-black relative z-50  rounded"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        <div className="bg-white p-3 lg:hidden z-40  px-3 flex items-baseline justify-center  rounded-[50%]">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className=" relative  rounded"
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </motion.nav>
     </header>
   );
