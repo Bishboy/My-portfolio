@@ -86,8 +86,8 @@ const Skills:React.FC = () => {
           transition={{ delay: 0.5, duration: 0.4 }}
           className="hover:translate-x-2 duration-500 text-center hover:text-purple-300 text-sm"
         >
-          I am a passionate front-end developer with a strong foundation in web
-          technologies, including HTML, CSS, and JavaScript. I specialize in
+         As a passionate front-end developer with a strong foundation in web
+          technologies, including HTML, CSS, and JavaScript, I specialize in
           building responsive and visually engaging user interfaces using modern
           frameworks like React and Next.js. My expertise in TypeScript allows
           me to create scalable and type-safe applications, ensuring code

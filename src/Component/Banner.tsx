@@ -74,10 +74,10 @@ const Banner: React.FC = () => {
             Welcome to my <span className="strokeText">Portfolio</span>{" "}
           </span>
           <h1 className="lg:text-[3rem] flex flex-col sm:text-[2rem] text-[1.6rem] font-bold">
-            {`Hi, I'm Emmanuel a`} <span className="strokeText">{text}</span>
+            {`Hi, I'm Emmanuel your`} <span className="strokeText">{text}</span>
           </h1>
           <p className="sm:text-base text-sm">
-            I'm a passionate frontend developer, that combines creativity and
+            A passionate frontend developer, that combines creativity and
             technical prowess to craft visually stunning and user-friendly web
             experiences.
           </p>
