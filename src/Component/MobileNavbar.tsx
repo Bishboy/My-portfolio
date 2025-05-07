@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa";
+// import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
 // Use the Variants type directly from Framer Motion

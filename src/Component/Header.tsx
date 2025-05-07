@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import{ useState, useEffect } from "react";
 import logo from "../assets/img/logo.svg";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import Navicon1 from "../assets/img/nav-icon1.svg";
 import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";

@@ -89,7 +89,7 @@ const truncateText = (text:string, num:number)=>{
 
 const Project :React.FC = () => {
    const [showMore, setShowMore] = useState<{ [key: number]: boolean }>({});
-   const mobile = window.innerWidth <= 788 ? true : false;
+  //  const mobile = window.innerWidth <= 788 ? true : false;
    
     const toggleShowMore = (id: number) => {
       setShowMore((prevState) => ({
