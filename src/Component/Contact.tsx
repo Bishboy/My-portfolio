@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import contactImg from "../assets/img/contact-img.svg";
 import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
 
 
 type FormData = {
@@ -67,16 +68,21 @@ const Contact: React.FC = () => {
 
   return (
     <section>
-      <div className=" grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 ">
+      <div className=" w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 ">
         <div>
           <img src={contactImg} alt="Contact" />
         </div>
         <div className=" w-full ">
-          <h2>Get in Touch</h2>
-          <form
-            onSubmit={handleSubmit}
-            className=" flex flex-col gap-[1rem] "
+          <motion.h1
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring" }}
+            className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 mb-8 "
           >
+            Get in Touch
+          </motion.h1>
+     
+          <form onSubmit={handleSubmit} className=" flex flex-col gap-[1rem] ">
             <div>
               <Input
                 type="text"
