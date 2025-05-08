@@ -82,7 +82,11 @@ const Contact: React.FC = () => {
             Get in Touch
           </motion.h1>
      
-          <form onSubmit={handleSubmit} className=" flex flex-col gap-[1rem] ">
+          <motion.form
+          initial={{ opacity: 0, x: "80%" }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{   duration: 0.2 }}
+           onSubmit={handleSubmit} className=" flex flex-col gap-[1rem] ">
             <div>
               <Input
                 type="text"
@@ -145,7 +149,7 @@ const Contact: React.FC = () => {
                 </p>
               )}
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
