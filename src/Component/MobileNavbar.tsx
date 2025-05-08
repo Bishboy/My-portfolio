@@ -91,7 +91,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = ({ isOpen }) => {
                       : " text-white opacity-[0.75]"
                   }`}
                 >
-                  <a href="#project">Contact</a>
+                  <a href="#contact">Contact</a>
                 </li>
               </motion.ul>
             )}
