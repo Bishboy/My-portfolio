@@ -135,10 +135,10 @@ const Header = () => {
           </div>
           {/* <Button>Lets connect</Button> */}
           <button
-            id="contact"
+            
             className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black  border border-black group  hover:text-white "
           >
-            <span className="relative font-bold z-10 ">Let's Connect</span>
+            <span   className="relative font-bold z-10 ">Let's Connect</span>
             <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
