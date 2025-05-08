@@ -83,6 +83,16 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = ({ isOpen }) => {
                 >
                   <a href="#project">Project</a>
                 </li>
+                <li
+                  onClick={() => setActive("contact")}
+                  className={`${
+                    active === "contact"
+                      ? "text-purple-500 underline underline-offset-4 transition duration-1000 ease-in-out  opacity-[1] decoration-[0.3rem]"
+                      : " text-white opacity-[0.75]"
+                  }`}
+                >
+                  <a href="#project">Contact</a>
+                </li>
               </motion.ul>
             )}
           </motion.div>

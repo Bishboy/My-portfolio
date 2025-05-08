@@ -12,7 +12,7 @@ import Contact from './Component/Contact'
 function App() {
   
   return (
-    <div className=''>
+    <div className='max-w-[1660px] mx-auto w-full'>
     <Header />
     <Banner />
     <Skills />

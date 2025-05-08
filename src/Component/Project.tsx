@@ -98,8 +98,14 @@ const Project :React.FC = () => {
 
   return (
     <section
-      id="project "
-      className="bg-gradient-to-r from-purple-300/20 to-purple-600/20 py-[2rem]"
+      id="project"
+      className="w-[90%] mt-5 flex flex-col items-center gap-4 mx-auto 
+           bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] 
+           from-purple-300/20 via-purple-500/30 to-purple-600/20 
+           py-[2rem] px-4 rounded-2xl
+           border border-purple-500/20
+           shadow-lg shadow-purple-500/10
+           backdrop-blur-sm"
     >
       <div className="text-white relative">
         <div className="  mt-[2rem] flex flex-col gap-[2rem] ">

@@ -92,6 +92,16 @@ const Header = () => {
           >
             <a href="#project">Project</a>
           </li>
+          <li
+            onClick={() => setActive("contact")}
+            className={`${
+              active === "contact"
+                ? "text-purple-500 underline underline-offset-4 transition duration-1000 ease-in-out  opacity-[1] decoration-[0.3rem]"
+                : " text-white opacity-[0.75]"
+            }`}
+          >
+            <a href="#contact">Contact</a>
+          </li>
         </ul>
 
         <div className="lg:flex items-center gap-[2rem] hidden ">
@@ -114,7 +124,8 @@ const Header = () => {
               <img src={Navicon2} alt="" className="relative " />
             </a>
             <a
-              href="https://x.com/iam_bishboy" target="blank"
+              href="https://x.com/iam_bishboy"
+              target="blank"
               className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-50 flex items-center justify-center border-2 shadow-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
@@ -123,7 +134,10 @@ const Header = () => {
             </a>
           </div>
           {/* <Button>Lets connect</Button> */}
-          <button className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black  border border-black group  hover:text-white ">
+          <button
+            id="contact"
+            className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black  border border-black group  hover:text-white "
+          >
             <span className="relative font-bold z-10 ">Let's Connect</span>
             <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>

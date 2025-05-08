@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
   
 
   return (
-    <section>
+    <section id="contact">
       <div className=" w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 ">
         <div>
           <img src={contactImg} alt="Contact" />
@@ -81,12 +81,14 @@ const Contact: React.FC = () => {
           >
             Get in Touch
           </motion.h1>
-     
+
           <motion.form
-          initial={{ opacity: 0, x: "80%" }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{   duration: 0.2 }}
-           onSubmit={handleSubmit} className=" flex flex-col gap-[1rem] ">
+            initial={{ opacity: 0, x: "5%" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.2 }}
+            onSubmit={handleSubmit}
+            className=" flex flex-col gap-[1rem] "
+          >
             <div>
               <Input
                 type="text"
