@@ -15,6 +15,13 @@ const Header = () => {
   const [scroll, setScroll] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+    const toggleMenu = () => {
+      setIsOpen(!isOpen);
+    };
+  const closeMenu = () => {
+    setIsOpen(false)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -60,7 +67,7 @@ const Header = () => {
         <div>
           <span></span>
         </div>
-        <MobileNavbar isOpen={isOpen} />
+        <MobileNavbar isOpen={isOpen} closeMenu={closeMenu} />
         <ul className="lg:flex gap-[3rem] font-bold hidden ">
           <li
             onClick={() => setActive("home")}
@@ -134,20 +141,16 @@ const Header = () => {
             </a>
           </div>
           {/* <Button>Lets connect</Button> */}
-          <button
-            
-            className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black  border border-black group  hover:text-white "
-          >
-            <a href="#contact"  className="relative font-bold z-50 ">Let's Connect</a>
+          <button className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black  border border-black group  hover:text-white ">
+            <a href="#contact" className="relative font-bold z-50 ">
+              Let's Connect
+            </a>
             <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </button>
         </div>
         <div className="bg-white p-3 lg:hidden z-40  px-3 flex items-baseline justify-center  rounded-[50%]">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className=" relative  rounded"
-          >
+          <button onClick={toggleMenu} className=" relative  rounded">
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>

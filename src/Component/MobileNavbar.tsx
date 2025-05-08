@@ -10,9 +10,13 @@ const variants: Variants = {
 
 interface MobileNavbarProps {
   isOpen: boolean;
+  closeMenu: () => void;
 }
 
-export const MobileNavbar: React.FC<MobileNavbarProps> = ({ isOpen }) => {
+export const MobileNavbar: React.FC<MobileNavbarProps> = ({
+  isOpen,
+  closeMenu,
+}) => {
   const [showLinks, setShowLinks] = useState(false);
   const [active, setActive] = useState<string>("");
 
@@ -54,44 +58,88 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = ({ isOpen }) => {
                 className="flex flex-col mt-8 space-y-4 p-4 uppercase"
               >
                 <li
-                  onClick={() => setActive("home")}
                   className={`${
                     active === "home"
                       ? "text-purple-500 opacity-[1] underline transition duration-1000 ease-in-out  underline-offset-4 decoration-[0.3rem]"
                       : "text-white opacity-[0.75]"
                   }`}
                 >
-                  <a href="#home">Home</a>
+                  <a
+                    href="#home"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActive("home");
+                      closeMenu();
+                      setTimeout(() => {
+                        window.location.href = "#home"; // Smooth scroll after state updates
+                      }, 100);
+                    }}
+                  >
+                    Home
+                  </a>
                 </li>
                 <li
-                  onClick={() => setActive("skill")}
                   className={`${
                     active === "skill"
                       ? "text-purple-500 opacity-[1] transition duration-1000 ease-in-out underline underline-offset-4 decoration-[0.3rem]"
                       : "text-white opacity-[0.75]"
                   }`}
                 >
-                  <a href="#skill">Skill</a>
+                  <a
+                    href="#skill"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActive("skill");
+                      closeMenu();
+                      setTimeout(() => {
+                        window.location.href = "#skill"; // Smooth scroll after state updates
+                      }, 100);
+                    }}
+                  >
+                    Skill
+                  </a>
                 </li>
                 <li
-                  onClick={() => setActive("project")}
                   className={`${
                     active === "project"
                       ? "text-purple-500 underline underline-offset-4 transition duration-1000 ease-in-out  opacity-[1] decoration-[0.3rem]"
                       : " text-white opacity-[0.75]"
                   }`}
                 >
-                  <a href="#project">Project</a>
+                  <a
+                    href="#project"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActive("project");
+                      closeMenu();
+                      setTimeout(() => {
+                        window.location.href = "#project"; // Smooth scroll after state updates
+                      }, 100);
+                    }}
+                  >
+                    Project
+                  </a>
                 </li>
                 <li
-                  onClick={() => setActive("contact")}
                   className={`${
                     active === "contact"
                       ? "text-purple-500 underline underline-offset-4 transition duration-1000 ease-in-out  opacity-[1] decoration-[0.3rem]"
                       : " text-white opacity-[0.75]"
                   }`}
                 >
-                  <a href="#contact">Contact</a>
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActive("contact");
+                      closeMenu();
+                      setTimeout(() => {
+                        window.location.href = "#contact"; // Smooth scroll after state updates
+                      }, 100);
+                    }}
+                  >
+                    Contact
+                  </a>
                 </li>
               </motion.ul>
             )}
