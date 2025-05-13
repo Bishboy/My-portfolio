@@ -3,6 +3,7 @@ import { FiArrowRightCircle } from "react-icons/fi";
 import headerImg from "../assets/img/header-img.svg";
 import banner from "../assets/img/banner-bg.png";
 import { motion } from "framer-motion";
+import Downlaod from "./Downlaod";
 
 const Banner: React.FC = () => {
   const [loopNum, setLoopNum] = useState<number>(0);
@@ -81,6 +82,7 @@ const Banner: React.FC = () => {
             technical prowess to craft visually stunning and user-friendly web
             experiences.
           </p>
+          <div className="flex gap-4 flex-col md:flex-row items-center">
           <div className="relative md:px-6 px-2 py-2 w-fit bg-white overflow-hidden rounded-lg text-black border border-black group hover:text-white ">
             <a href="#contact" className="relative flex items-center text-xs md:text-base gap-2 font-bold z-50">
               Let's Connect <FiArrowRightCircle />
@@ -88,6 +90,9 @@ const Banner: React.FC = () => {
             <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
             <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
           </div>
+          <Downlaod />
+          </div>
+
         </motion.div>
         <motion.div
           initial={{ y: -400 }}

@@ -67,11 +67,8 @@ const Contact: React.FC = () => {
   
 
   return (
-    <section>
-      <div
-        id="contact"
-        className=" w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 "
-      >
+    <section id="contact" className="py-[2rem]">
+      <div className=" w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 ">
         <div>
           <img src={contactImg} alt="Contact" />
         </div>
