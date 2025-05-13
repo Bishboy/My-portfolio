@@ -1,7 +1,7 @@
 import React from "react";
 
 const Downlaod: React.FC = () => {
-    const resumerUrl = '../../public/doc/Resume.pdf'
+    const resumerUrl = 'doc/Resume.pdf'
     const resumeName = 'Resume.pdf'
 
 
