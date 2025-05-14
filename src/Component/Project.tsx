@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import beach from '../assets/img/beach.png'
 import Food from '../assets/img/food.png'
 import disney from '../assets/img/disney.png'
@@ -77,24 +77,19 @@ const data: Items[] = [
   },
 ];
 
-const truncateText = (text:string, num:number)=>{
-  if(text.length > num){
-    return `${text.substring(0, num)}.....`
-  }else{
-    return text
-  }
-}
+ 
 
 const Project :React.FC = () => {
-   const [showMore, setShowMore] = useState<{ [key: number]: boolean }>({});
+  //  const [showMore, setShowMore] = useState<{ [key: number]: boolean }>({});
   //  const mobile = window.innerWidth <= 788 ? true : false;
    
-    const toggleShowMore = (id: number) => {
-      setShowMore((prevState) => ({
-        ...prevState,
-        [id]: !prevState[id],
-      }));
-    };
+    // const toggleShowMore = (id: number) => {
+    //   setShowMore((prevState) => ({
+    //     ...prevState,
+    //     [id]: !prevState[id],
+        
+    //   }));
+    // };
 
   return (
     <section
