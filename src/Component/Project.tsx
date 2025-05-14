@@ -111,7 +111,7 @@ const Project :React.FC = () => {
             transition={{ type: "spring" }}
             className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 "
           >
-            Project
+            Projects
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
