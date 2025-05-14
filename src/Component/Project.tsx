@@ -124,10 +124,16 @@ const Project :React.FC = () => {
             transition={{ delay: 0.5 }}
             className="text-sm hover:text-purple-200 text-center "
           >
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced
-            below for those interested. Sections 1.10.32 and 1.10.33 from "de
-            Finibus Bonorum et Malorum" by Cicero are also reproduced in their
-            exact original form,{" "}
+            From sleek business websites to interactive web apps, these are some
+            of the projects I've built from the ground up. You'll find
+            everything here – a clean beach resort site, Netflix-inspired
+            clones, an e-commerce grocery store, and more. Each one represents
+            real challenges I've solved, code I've wrestled with, and designs
+            I've tweaked until they felt just right. Some were client work,
+            others were passion projects where I experimented with new tech. All
+            of them taught me something valuable. Take a look around – click,
+            scroll, and if something catches your eye, I'm happy to share the
+            behind-the-scenes details.
           </motion.p>
 
           <div className="relative  ">
@@ -139,7 +145,7 @@ const Project :React.FC = () => {
                     className="relative rounded-2xl overflow-hidden group hover:skew-x-1 hover:shadow-lg hover:shadow-black duration-500 "
                   >
                     <div className="bg-purple-500/30 w-full h-full rounded-2xl absolute z-20 px-4 py-2 group-hover:translate-y-[0rem] group-hover:skew-x-1 translate-y-[-17rem] transform duration-500 backdrop-blur-[1rem] flex flex-col justify-between">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-center h-full gap-8">
                         <h2 className="font-bold uppercase text-black">
                           {items.title}
                         </h2>
@@ -153,7 +159,7 @@ const Project :React.FC = () => {
                           </a>
                         </div>
                       </div>
-                      <p className="text-sm font-semibold text-black">
+                      {/* <p className="text-sm font-semibold text-black">
                         {showMore[items.id]
                           ? items.description
                           : truncateText(items.description, 60)}
@@ -164,7 +170,7 @@ const Project :React.FC = () => {
                           {" "}
                           {showMore[items.id] ? "Show Less" : "Show More"}
                         </span>
-                      </p>
+                      </p> */}
                     </div>
                     <img
                       src={items.image}
