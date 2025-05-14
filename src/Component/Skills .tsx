@@ -87,13 +87,13 @@ const Skills: React.FC = () => {
   };
 
   const plugin = useCallback(
-    () => Autoplay({ delay: 2500, stopOnInteraction: true }),
+    () => Autoplay({ delay: 3000, stopOnInteraction: true }),
     []
   );
 
   return (
     <section id="skill" className="">
-      <div className="text-white relative z-30 w-[90%] mt-[4rem] lg:py-[3rem] mx-auto flex flex-col items-center gap-[1rem] md:gap-[2rem]">
+      <div className="text-white relative z-30 w-[90%] mt-[11rem] py-2 lg:mt-[4rem] lg:py-[3rem] mx-auto flex flex-col items-center gap-[1rem] md:gap-[2rem]">
         <motion.h2
           initial={{ opacity: 0, x: mobile ? 100 : 200 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -121,6 +121,7 @@ const Skills: React.FC = () => {
           plugins={[plugin()]}
           opts={{
             loop: true,
+            align: "start",
           }}
         >
           <CarouselContent className="-ml-1">
@@ -146,8 +147,8 @@ const Skills: React.FC = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="bg-transparent" />
-          <CarouselNext className="bg-transparent" />
+          <CarouselPrevious className="bg-transparent hover:bg-transparent" />
+          <CarouselNext className="bg-transparent hover:bg-transparent" />
         </Carousel>
       </div>
     </section>
