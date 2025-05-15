@@ -117,18 +117,12 @@ const Project :React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-sm hover:text-purple-200 text-center "
+            className="text-sm hover:text-purple-200 text-center md:max-w-[50%] mx-auto"
           >
-            From sleek business websites to interactive web apps, these are some
-            of the projects I've built from the ground up. You'll find
-            everything here – a clean beach resort site, Netflix-inspired
-            clones, an e-commerce grocery store, and more. Each one represents
-            real challenges I've solved, code I've wrestled with, and designs
-            I've tweaked until they felt just right. Some were client work,
-            others were passion projects where I experimented with new tech. All
-            of them taught me something valuable. Take a look around – click,
-            scroll, and if something catches your eye, I'm happy to share the
-            behind-the-scenes details.
+            A collection of web projects—from business sites to apps, e-commerce
+            stores, and Netflix clones—each built with problem-solving, clean
+            code, and polished design. Explore the work, and I’ll gladly share
+            the behind-the-scenes details.
           </motion.p>
 
           <div className="relative  ">

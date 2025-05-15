@@ -2,7 +2,8 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import contactImg from "../assets/img/contact-img.svg";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type FormData = {
   firstName: string;
@@ -10,15 +11,9 @@ type FormData = {
   email: string;
   phone: string;
   message: string;
-}
-
-type Status = {
-  success?: boolean;
-  message?: string;
-}
+};
 
 const Contact: React.FC = () => {
-
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -28,7 +23,6 @@ const Contact: React.FC = () => {
   });
 
   const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState<Status>({});
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -39,56 +33,81 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setButtonText('sending...')
+    setButtonText("Sending...");
 
-    let response = await fetch("http://localhost:500/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      // The form will be submitted to FormSubmit.co automatically
+      // We'll show toast notifications for user feedback
+      toast.success("Message sent successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
-    setButtonText('send');
-    let result = await response.json()
-    setFormData({...formData})
-    if (result.code == 200) {
-      setStatus({ success: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ success: false, message: 'Something went wrong, please try again later.'});
+      // Reset form after submission
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } finally {
+      setButtonText("Send");
     }
-
-
-   
-
-    
   };
- 
-  
 
   return (
     <section id="contact" className="lg:py-[2rem]">
-      <div className=" w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2 ">
+      <ToastContainer />
+      <div className="w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2">
         <div>
           <img src={contactImg} alt="Contact" />
         </div>
-        <div className=" w-full ">
+        <div className="w-full">
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring" }}
-            className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 mb-8 "
+            className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 mb-8"
           >
             Get in Touch
           </motion.h1>
 
           <motion.form
+            action="https://formsubmit.co/bishboy2spieking@gmail.com"
+            method="POST"
             initial={{ opacity: 0, x: "5%" }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.2 }}
             onSubmit={handleSubmit}
-            className=" flex flex-col gap-[1rem] "
+            className="flex flex-col gap-[1rem]"
           >
+            {/* FormSubmit.co configuration fields */}
+            <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL" />
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Contact Form Submission"
+            />
+            <input type="text" name="_honey" style={{ display: "none" }} />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <div>
               <Input
                 type="text"
@@ -97,6 +116,7 @@ const Contact: React.FC = () => {
                 onChange={handleChange}
                 placeholder="First Name"
                 className="w-full text-black"
+                required
               />
             </div>
             <div>
@@ -106,15 +126,17 @@ const Contact: React.FC = () => {
                 value={formData.lastName}
                 onChange={handleChange}
                 placeholder="Last Name"
+                required
               />
             </div>
             <div>
               <Input
-                type="email"
+                type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
+                required
               />
             </div>
             <div>
@@ -134,22 +156,17 @@ const Contact: React.FC = () => {
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
+                required
               />
             </div>
-            <div className="flex items-center justify-between w-full ">
+            <div className="flex items-center justify-between w-full">
               <button
                 type="submit"
                 className="p-2 px-8 font-bold bg-white text-black w-fit mx-auto rounded-2xl"
+                disabled={buttonText === "Sending..."}
               >
                 {buttonText}
               </button>
-            </div>
-            <div>
-              {status && (
-                <p className={status.success === false ? "danger" : "success"}>
-                  {status.message}
-                </p>
-              )}
             </div>
           </motion.form>
         </div>

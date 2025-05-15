@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import logo from "../assets/img/logo.svg";
+// import logo from "../assets/img/logo.svg";
 import Navicon1 from "../assets/img/nav-icon1.svg";
 import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";
@@ -90,7 +90,9 @@ const Header = () => {
           scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed p-3" : ""
         } px-6 w-full flex items-center justify-between top-0 z-50 fixed`}
       >
-        <img src={logo} alt="Logo" className="w-[3rem] h-[4rem]" />
+        <h1 className="text-white md:text-2xl xl font-bold">EMMANUEL</h1>
+
+        {/* <img src={logo} alt="Logo" className="w-[3rem] h-[4rem]" /> */}
         <div>
           <span></span>
         </div>

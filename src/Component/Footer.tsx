@@ -2,7 +2,7 @@
 import Navicon1 from "../assets/img/nav-icon1.svg";
 import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";
-import logo from "../assets/img/logo.svg";
+// import logo from "../assets/img/logo.svg";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-8 justify-between items-center">
           <div>
-            <img src={logo} alt="Logo" className="h-10" />
+            <h1 className="text-white md:text-2xl xl font-bold">EMMANUEL</h1>
           </div>
           <div className="flex flex-col items-center md:items-end gap-4">
             <div className="flex gap-4">

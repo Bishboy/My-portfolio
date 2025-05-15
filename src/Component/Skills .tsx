@@ -106,7 +106,7 @@ const Skills: React.FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.4 }}
-          className="hover:translate-x-2 duration-500 mt-4 text-center hover:text-purple-300 text-sm"
+          className="hover:translate-x-2 duration-500 mt-4  md:max-w-[50%] text-center hover:text-purple-300 text-sm"
         >
           {truncateText(myText, 300)}
           <button
