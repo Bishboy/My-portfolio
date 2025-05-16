@@ -87,8 +87,8 @@ const Header = () => {
         initial="hidden"
         animate="visible"
         className={`${
-          scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed p-3" : ""
-        } px-6 w-full flex items-center justify-between top-0 z-50 fixed`}
+          scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed p-4 " : ""
+        } px-6 w-full flex items-center justify-between top-0 z-50 fixed p-4`}
       >
         <h1 className="text-white md:text-2xl xl font-bold">EMMANUEL</h1>
 

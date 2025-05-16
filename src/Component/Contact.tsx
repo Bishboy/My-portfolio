@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
           progress: undefined,
         });
 
-        // Reset form after submission
+        
         setFormData({
           firstName: "",
           lastName: "",
