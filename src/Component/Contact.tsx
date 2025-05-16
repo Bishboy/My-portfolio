@@ -36,23 +36,38 @@ const Contact: React.FC = () => {
     setButtonText("Sending...");
 
     try {
+      // Create FormData object instead of JSON
+      const formPayload = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        formPayload.append(key, value);
+      });
+
+      // Add FormSubmit.co specific fields
+      formPayload.append("_captcha", "false");
+      formPayload.append("_template", "table");
+
       const response = await fetch(
-        "https://formsubmit.co/bishboy2spieking@gmail.com",
+        "https://formsubmit.co/ajax/bishboy2spieking@gmail.com", // Note the /ajax endpoint
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(formData),
+          body: formPayload, // Send as FormData
         }
       );
 
       const data = await response.json();
-      console.log(data);
 
       if (response.ok) {
-        toast.success("Message sent successfully!");
+        toast.success("Message sent successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        // Reset form after submission
         setFormData({
           firstName: "",
           lastName: "",
@@ -61,18 +76,25 @@ const Contact: React.FC = () => {
           message: "",
         });
       } else {
-        toast.error(data.message || "Something went wrong.");
+        throw new Error(data.message || "Failed to send message");
       }
     } catch (error) {
-      console.error(error);
-      toast.error("An error occurred. Please try again.");
+      toast.error("Something went wrong. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } finally {
       setButtonText("Send");
     }
   };
 
   return (
-    <section id="contact" className="lg:py-[2rem]">
+    <section id="contact" className="lg:py-[2rem] pb-4">
       <ToastContainer />
       <div className="w-[90%] mx-auto grid md:grid-cols-2 grid-cols-1 items-center mt-[10rem] px-2">
         <div>
@@ -89,25 +111,12 @@ const Contact: React.FC = () => {
           </motion.h1>
 
           <motion.form
-            action="https://formsubmit.co/2cb437aa2f91805cf7185aef4b1b4820"
-            method="POST"
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: "5%" }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.2 }}
-            onSubmit={handleSubmit}
             className="flex flex-col gap-[1rem]"
           >
-            {/* FormSubmit.co configuration fields */}
-            <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL" />
-            <input
-              type="hidden"
-              name="_subject"
-              value="New Contact Form Submission"
-            />
-            <input type="text" name="_honey" style={{ display: "none" }} />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-
             <div>
               <Input
                 type="text"
@@ -131,7 +140,7 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <Input
-                type="text"
+                type="email"  
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -141,7 +150,7 @@ const Contact: React.FC = () => {
             </div>
             <div>
               <Input
-                type="number"
+                type="tel"  
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
