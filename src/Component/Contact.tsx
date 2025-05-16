@@ -36,36 +36,36 @@ const Contact: React.FC = () => {
     setButtonText("Sending...");
 
     try {
-      // The form will be submitted to FormSubmit.co automatically
-      // We'll show toast notifications for user feedback
-      toast.success("Message sent successfully!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      const response = await fetch(
+        "https://formsubmit.co/bishboy2spieking@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-      // Reset form after submission
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
+      const data = await response.json();
+      console.log(data);
+
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        toast.error(data.message || "Something went wrong.");
+      }
     } catch (error) {
-      toast.error("Something went wrong. Please try again.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      console.error(error);
+      toast.error("An error occurred. Please try again.");
     } finally {
       setButtonText("Send");
     }
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
           </motion.h1>
 
           <motion.form
-            action="https://formsubmit.co/bishboy2spieking@gmail.com"
+            action="https://formsubmit.co/2cb437aa2f91805cf7185aef4b1b4820"
             method="POST"
             initial={{ opacity: 0, x: "5%" }}
             whileInView={{ opacity: 1, x: 0 }}
