@@ -116,7 +116,7 @@ const Header = () => {
                 : "text-white opacity-[0.75]"
             }`}
           >
-            <a href="#skill">Skill</a>
+            <a href="#skill">Skills</a>
           </li>
           <li
             onClick={() => setActive("project")}
@@ -126,7 +126,7 @@ const Header = () => {
                 : "text-white opacity-[0.75]"
             }`}
           >
-            <a href="#project">Project</a>
+            <a href="#project">Projects</a>
           </li>
           <li
             onClick={() => setActive("contact")}

@@ -4,7 +4,10 @@ import Food from '../assets/img/food.png'
 import disney from '../assets/img/disney.png'
 import Netflix from '../assets/img/netflix.png'
 import Dcabon from '../assets/img/dcarbon.png'
+import whistle from '../assets/img/whistle.png'
 import gym from '../assets/img/gym.png'
+import Dashboard from '../assets/img/dashboard.png'
+import Assured from "../assets/img/Assured.png"
 import cocktail from '../assets/img/cocktail.png'
 import { FaEye } from "react-icons/fa";
 import { motion } from 'framer-motion'
@@ -26,6 +29,30 @@ const data: Items[] = [
       "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
     image: Dcabon,
     link: "https://dcarbon.solutions/",
+  },
+  {
+    id: 8,
+    title: "Whistle",
+    description:
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+    image: whistle,
+    link: " https://whistle-puce.vercel.app/",
+  },
+  {
+    id: 9,
+    title: "AssuredTips",
+    description:
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+    image: Assured,
+    link: " https://assured-tips-j7r3.vercel.app/",
+  },
+  {
+    id: 10,
+    title: "FundCirkle DB",
+    description:
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+    image: Dashboard,
+    link: " https://circkle-admin.vercel.app/",
   },
   {
     id: 2,
@@ -68,7 +95,7 @@ const data: Items[] = [
     link: "https://github.com/Bishboy/netflix-clone",
   },
   {
-    id: 17,
+    id: 7,
     title: "Disney ",
     description:
       "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
@@ -164,7 +191,7 @@ const Project :React.FC = () => {
                     <img
                       src={items.image}
                       alt={items.image}
-                      className="rounded-2xl relative"
+                      className="rounded-2xl relative w-full h-full"
                     />
                   </div>
                 ))}
