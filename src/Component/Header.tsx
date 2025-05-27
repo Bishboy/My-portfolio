@@ -81,7 +81,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="max-w-[1660px] mx-auto w-full">
       <motion.nav
         variants={headVariant}
         initial="hidden"
