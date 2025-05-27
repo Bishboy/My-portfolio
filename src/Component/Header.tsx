@@ -5,7 +5,8 @@ import Navicon2 from "../assets/img/nav-icon2.svg";
 import Navicon3 from "../assets/img/nav-icon3.svg";
 import { MobileNavbar } from "./MobileNavbar";
 import { motion } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaGithub } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 
 type ActiveLink = "home" | "skill" | "project" | "contact" | "";
 
@@ -152,11 +153,12 @@ const Header = () => {
               <img src={Navicon1} alt="LinkedIn" className="relative" />
             </a>
             <a
-              href="#"
+            target="_blank"
+              href="https://github.com/Bishboy"
               className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out flex items-center justify-center border-2 shadow-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-              <img src={Navicon2} alt="Social Media" className="relative" />
+              <FaGithub className="text-white relative " />
             </a>
             <a
               href="https://x.com/iam_bishboy"
@@ -165,7 +167,7 @@ const Header = () => {
               className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-50 flex items-center justify-center border-2 shadow-lg overflow-hidden"
             >
               <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-              <img src={Navicon3} alt="Twitter" className="relative" />
+              <BsTwitterX className="text-white relative"  />
             </a>
           </div>
           <button className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black border border-black group hover:text-white">

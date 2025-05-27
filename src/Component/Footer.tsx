@@ -1,7 +1,7 @@
 // import React from "react";
 import Navicon1 from "../assets/img/nav-icon1.svg";
-import Navicon2 from "../assets/img/nav-icon2.svg";
-import Navicon3 from "../assets/img/nav-icon3.svg";
+import { FaGithub } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 // import logo from "../assets/img/logo.svg";
 
 const Footer = () => {
@@ -15,25 +15,28 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-end gap-4">
             <div className="flex gap-4">
               <a
-                href="#"
+              target="blank"
+                href="https://www.linkedin.com/in/uduak-emmanuel-11941b1b9/"
                 className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-10 flex items-center justify-center border-2 border-white/20 shadow-lg overflow-hidden hover:border-purple-500"
               >
                 <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
                 <img src={Navicon1} alt="LinkedIn" className="relative z-10" />
               </a>
               <a
-                href="#"
+                target="_blank"
+                href="https://github.com/Bishboy"
                 className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-10 flex items-center justify-center border-2 border-white/20 shadow-lg overflow-hidden hover:border-purple-500"
               >
                 <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-                <img src={Navicon2} alt="Facebook" className="relative z-10" />
+                <FaGithub className="relative text-white z-10" />
               </a>
               <a
-                href="#"
+                target="_blank"
+                href="https://x.com/iam_bishboy"
                 className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-10 flex items-center justify-center border-2 border-white/20 shadow-lg overflow-hidden hover:border-purple-500"
               >
                 <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-                <img src={Navicon3} alt="Instagram" className="relative z-10" />
+                <BsTwitterX className="relative text-white z-10" />
               </a>
             </div>
             <p className="text-white/70 text-sm mt-4">
