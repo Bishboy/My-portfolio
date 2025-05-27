@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 // import logo from "../assets/img/logo.svg";
 import Navicon1 from "../assets/img/nav-icon1.svg";
-import Navicon2 from "../assets/img/nav-icon2.svg";
-import Navicon3 from "../assets/img/nav-icon3.svg";
 import { MobileNavbar } from "./MobileNavbar";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes, FaGithub } from "react-icons/fa";
@@ -93,7 +91,7 @@ const Header = () => {
       >
         <h1 className="text-white md:text-2xl xl font-bold">EMMANUEL</h1>
 
-        {/* <img src={logo} alt="Logo" className="w-[3rem] h-[4rem]" /> */}
+        {/* <img src={logo} alt="Logo" className="w-[3rem] h-[4rem]" /> f*/}
         <div>
           <span></span>
         </div>
