@@ -1,6 +1,6 @@
 
 import beach from '../assets/img/beach.png'
-import Food from '../assets/img/food.png'
+// import Food from '../assets/img/food.png'
 import disney from '../assets/img/disney.png'
 import Netflix from '../assets/img/netflix.png'
 import Dcabon from '../assets/img/dcarbon.png'
@@ -8,7 +8,7 @@ import whistle from '../assets/img/whistle.png'
 import gym from '../assets/img/gym.png'
 import Dashboard from '../assets/img/dashboard.png'
 import Assured from "../assets/img/Assured.png"
-import cocktail from '../assets/img/cocktail.png'
+// import cocktail from '../assets/img/cocktail.png'
 import { FaEye } from "react-icons/fa";
 import { motion } from 'framer-motion'
  
@@ -54,14 +54,14 @@ const data: Items[] = [
     image: Dashboard,
     link: " https://circkle-admin.vercel.app/",
   },
-  {
-    id: 2,
-    title: "Food Shop",
-    description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
-    image: Food,
-    link: "https://github.com/Bishboy/foodshop",
-  },
+  // {
+  //   id: 2,
+  //   title: "Food Shop",
+  //   description:
+  //     "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+  //   image: Food,
+  //   link: "https://github.com/Bishboy/foodshop",
+  // },
   {
     id: 3,
     title: "Beaches",
@@ -78,21 +78,21 @@ const data: Items[] = [
     image: gym,
     link: "https://gym-app-six-omega.vercel.app/",
   },
-  {
-    id: 5,
-    title: "Cocktail Shop",
-    description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
-    image: cocktail,
-    link: "https://github.com/Bishboy/cocktail",
-  },
+  // {
+  //   id: 5,
+  //   title: "Cocktail Shop",
+  //   description:
+  //     "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+  //   image: cocktail,
+  //   link: "https://github.com/Bishboy/cocktail",
+  // },
   {
     id: 6,
     title: "Netflix Clone",
     description:
       "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
     image: Netflix,
-    link: "https://github.com/Bishboy/netflix-clone",
+    link: "https://netflix-clone-one-gules.vercel.app/",
   },
   {
     id: 7,
@@ -100,7 +100,7 @@ const data: Items[] = [
     description:
       "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
     image: disney,
-    link: "https://github.com/Bishboy/Disney-clone",
+    link: "https://disney-clone-black-two.vercel.app/",
   },
 ];
 

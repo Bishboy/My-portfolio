@@ -96,7 +96,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = ({
                       }, 100);
                     }}
                   >
-                    Skill
+                    Skills
                   </a>
                 </li>
                 <li
@@ -117,7 +117,7 @@ export const MobileNavbar: React.FC<MobileNavbarProps> = ({
                       }, 100);
                     }}
                   >
-                    Project
+                    Projects
                   </a>
                 </li>
                 <li
