@@ -1,32 +1,30 @@
+import { motion, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
+import beach from "../assets/img/beach.png";
+import disney from "../assets/img/disney.png";
+import Netflix from "../assets/img/netflix.png";
+import Dcabon from "../assets/img/dcarbon.png";
+import whistle from "../assets/img/whistle.png";
+import gym from "../assets/img/gym.png";
+import Dashboard from "../assets/img/dashboard.png";
+import Assured from "../assets/img/Assured.png";
+import { FaEye, FaGithub } from "react-icons/fa";
 
-import beach from '../assets/img/beach.png'
-// import Food from '../assets/img/food.png'
-import disney from '../assets/img/disney.png'
-import Netflix from '../assets/img/netflix.png'
-import Dcabon from '../assets/img/dcarbon.png'
-import whistle from '../assets/img/whistle.png'
-import gym from '../assets/img/gym.png'
-import Dashboard from '../assets/img/dashboard.png'
-import Assured from "../assets/img/Assured.png"
-// import cocktail from '../assets/img/cocktail.png'
-import { FaEye } from "react-icons/fa";
-import { motion } from 'framer-motion'
- 
+type ProjectItem = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+};
 
-type Items = {
-    id:number,
-    title:string,
-    description:string,
-    image:string,
-    link: string
-}
 
-const data: Items[] = [
+const data: ProjectItem[] = [
   {
     id: 1,
     title: "Dcarbon",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "A sustainability platform helping businesses reduce their carbon footprint through innovative solutions and tracking tools.",
     image: Dcabon,
     link: "https://dcarbon.solutions/",
   },
@@ -34,39 +32,31 @@ const data: Items[] = [
     id: 8,
     title: "Whistle",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "A whistleblowing platform that enables secure and anonymous reporting of workplace misconduct and ethical violations.",
     image: whistle,
-    link: " https://whistle-puce.vercel.app/",
+    link: "https://whistle-puce.vercel.app/",
   },
   {
     id: 9,
     title: "AssuredTips",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "Sports betting tips platform providing expert predictions and analysis for football matches worldwide.",
     image: Assured,
-    link: " https://assured-tips-j7r3.vercel.app/",
+    link: "https://assured-tips-j7r3.vercel.app/",
   },
   {
     id: 10,
     title: "FundCirkle DB",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "Admin dashboard for managing investment funds, tracking performance metrics, and generating financial reports.",
     image: Dashboard,
-    link: " https://circkle-admin.vercel.app/",
+    link: "https://circkle-admin.vercel.app/",
   },
-  // {
-  //   id: 2,
-  //   title: "Food Shop",
-  //   description:
-  //     "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
-  //   image: Food,
-  //   link: "https://github.com/Bishboy/foodshop",
-  // },
   {
     id: 3,
     title: "Beaches",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "Travel platform showcasing the world's most beautiful beaches with booking functionality and user reviews.",
     image: beach,
     link: "https://beaches-sigma.vercel.app/",
   },
@@ -74,49 +64,88 @@ const data: Items[] = [
     id: 4,
     title: "Gym Club",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "Fitness platform offering workout plans, class schedules, and membership management for gym enthusiasts.",
     image: gym,
     link: "https://gym-app-six-omega.vercel.app/",
   },
-  // {
-  //   id: 5,
-  //   title: "Cocktail Shop",
-  //   description:
-  //     "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
-  //   image: cocktail,
-  //   link: "https://github.com/Bishboy/cocktail",
-  // },
   {
     id: 6,
     title: "Netflix Clone",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "A functional clone of Netflix with movie browsing, trailers, and user profiles built with React and Firebase.",
     image: Netflix,
     link: "https://netflix-clone-one-gules.vercel.app/",
   },
   {
     id: 7,
-    title: "Disney ",
+    title: "Disney+ Clone",
     description:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ips",
+      "Disney+ streaming service replica featuring Disney's content library with responsive design.",
     image: disney,
     link: "https://disney-clone-black-two.vercel.app/",
   },
 ];
+const Project: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
- 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-const Project :React.FC = () => {
-  //  const [showMore, setShowMore] = useState<{ [key: number]: boolean }>({});
-  //  const mobile = window.innerWidth <= 788 ? true : false;
-   
-    // const toggleShowMore = (id: number) => {
-    //   setShowMore((prevState) => ({
-    //     ...prevState,
-    //     [id]: !prevState[id],
-        
-    //   }));
-    // };
+  // Animation variants with proper typing
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    hover: {
+      scale: 1.02,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const imageVariants = {
+    normal: {
+      scale: 1,
+      filter: "brightness(1)",
+    },
+    hovered: {
+      scale: 1.05,
+      filter: "brightness(0.7)",
+    },
+  };
+
+  const overlayVariants = {
+    normal: {
+      opacity: 0.8,
+      y: 20,
+    },
+    hovered: {
+      opacity: 1,
+      y: 0,
+    },
+  };
 
   return (
     <section
@@ -124,84 +153,104 @@ const Project :React.FC = () => {
       className="w-[90%] mt-5 flex flex-col items-center gap-4 mx-auto 
            bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] 
            from-purple-300/20 via-purple-500/30 to-purple-600/20 
-           py-[2rem] px-4 rounded-2xl
+           py-[3rem] px-4 rounded-2xl
            border border-purple-500/20
            shadow-lg shadow-purple-500/10
            backdrop-blur-sm"
     >
-      <div className="text-white relative">
-        <div className="  mt-[2rem] flex flex-col gap-[2rem] ">
-          {/* responsive issue */}
+      <motion.div
+        className="text-white relative w-full max-w-7xl"
+        initial="hidden"
+        whileInView="show"
+        variants={containerVariants}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className="mt-[2rem] flex flex-col gap-[2rem]">
           <motion.h1
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring" }}
-            className="text-center text-2xl font-bold strokeText uppercase hover:translate-x-1 "
+            variants={cardVariants}
+            className="text-center text-3xl md:text-4xl font-bold uppercase hover:text-purple-300 transition-colors"
           >
-            Projects
+            My <span className="text-purple-400">Projects</span>
           </motion.h1>
+
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-sm hover:text-purple-200 text-center md:max-w-[50%] mx-auto"
+            variants={cardVariants}
+            className="text-sm md:text-base text-gray-300 hover:text-purple-200 text-center md:max-w-[60%] mx-auto leading-relaxed"
           >
-            A collection of web projects—from business sites to apps, e-commerce
-            stores, and Netflix clones—each built with problem-solving, clean
-            code, and polished design. Explore the work, and I’ll gladly share
-            the behind-the-scenes details.
+            A collection of web projects built with problem-solving, clean code,
+            and polished design.
           </motion.p>
 
-          <div className="relative  ">
-            <div className="w-[90%] flex flex-col items-center gap-4 mx-auto  ">
-              <div className=" grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem]  ">
-                {data.map((items) => (
-                  <div
-                    key={items.id}
-                    className="relative rounded-2xl overflow-hidden group hover:skew-x-1 hover:shadow-lg hover:shadow-black duration-500 "
+          <motion.div className="relative w-full" variants={containerVariants}>
+            <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
+              {data.map((project) => (
+                <motion.div
+                  key={project.id}
+                  variants={cardVariants}
+                  className="relative rounded-2xl overflow-hidden group h-full min-h-[300px]"
+                  whileHover="hover"
+                  onMouseEnter={() => setHoveredCard(project.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover rounded-2xl"
+                    initial="normal"
+                    animate={hoveredCard === project.id ? "hovered" : "normal"}
+                    variants={imageVariants}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent  flex flex-col justify-end p-6"
+                    initial="normal"
+                    animate={hoveredCard === project.id ? "hovered" : "normal"}
+                    variants={overlayVariants}
+                    transition={{ duration: 0.3 }}
                   >
-                    <div className="bg-purple-500/30 w-full h-full rounded-2xl absolute z-20 px-4 py-2 group-hover:translate-y-[0rem] group-hover:skew-x-1 translate-y-[-17rem] transform duration-500 backdrop-blur-[1rem] flex flex-col justify-between">
-                      <div className="flex items-center justify-center h-full gap-8">
-                        <h2 className="font-bold uppercase text-black">
-                          {items.title}
-                        </h2>
-                        <div className="relative flex items-center gap-2 group">
-                          <a
-                            href={items.link}
-                            target="blank"
-                            className="bg-white text-black px-2  py-2  rounded-full shadow-md shadow-gray-800  group-hover:block duration-500"
-                          >
-                            <FaEye />
-                          </a>
-                        </div>
-                      </div>
-                      {/* <p className="text-sm font-semibold text-black">
-                        {showMore[items.id]
-                          ? items.description
-                          : truncateText(items.description, 60)}
-                        <span
-                          className="text-blue-400 cursor-pointer cursor-pointer  italic"
-                          onClick={() => toggleShowMore(items.id)}
-                        >
-                          {" "}
-                          {showMore[items.id] ? "Show Less" : "Show More"}
-                        </span>
-                      </p> */}
+                    <div className="mb-4">
+                      <h3 className="text-xl font-bold text-white">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-gray-300 mt-2 line-clamp-2">
+                        {project.description}
+                      </p>
                     </div>
-                    <img
-                      src={items.image}
-                      alt={items.image}
-                      className="rounded-2xl relative w-full h-full"
-                    />
-                  </div>
-                ))}
-              </div>
+
+                    <div className="flex justify-between items-center">
+                      <motion.a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full flex items-center gap-2 transition-colors"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <FaEye /> View Project
+                      </motion.a>
+                      <motion.a
+                        href={`https://github.com/yourusername/${project.title
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gray-800 hover:bg-gray-700 text-white p-2 rounded-full"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <FaGithub size={20} />
+                      </motion.a>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
-}
+};
 
-export default Project
+export default Project;

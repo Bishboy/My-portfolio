@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-// import logo from "../assets/img/logo.svg";
 import Navicon1 from "../assets/img/nav-icon1.svg";
 import { MobileNavbar } from "./MobileNavbar";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaGithub } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 
@@ -13,174 +12,223 @@ const Header = () => {
   const [scroll, setScroll] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const sectionsRef = useRef<NodeListOf<HTMLElement> | null>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   const toggleMenu = (): void => {
     setIsOpen(!isOpen);
+    document.body.style.overflow = isOpen ? "auto" : "hidden";
   };
 
   const closeMenu = (): void => {
     setIsOpen(false);
+    document.body.style.overflow = "auto";
   };
 
   useEffect(() => {
-    sectionsRef.current = document.querySelectorAll("section[id]")
-    
+    sectionsRef.current = document.querySelectorAll("section[id]");
+
     const handleScroll = (): void => {
-      if (window.scrollY > 50) {
-        setScroll(true);
-      } else {
-        setScroll(false);
-      }
+      const scrollY = window.scrollY;
+      setScroll(scrollY > 50);
 
-       if(sectionsRef.current){
-        const scrollPosition = window.scrollY + 100;
+      if (sectionsRef.current) {
+        const scrollPosition = scrollY + 100;
 
-        sectionsRef.current.forEach((section)=> {
-
+        sectionsRef.current.forEach((section) => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
           const sectionId = section.getAttribute("id") as ActiveLink;
 
-          if( 
-            scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight
-          ){
-            setActive(sectionId)
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            setActive(sectionId);
           }
-        })
-       }
-     
-      
+        });
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-
-  
     handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "auto";
     };
+  }, []);
 
-  },[]);
+  const navLinks = [
+    { id: "home", label: "Home" },
+    { id: "skill", label: "Skills" },
+    { id: "project", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://www.linkedin.com/in/uduak-emmanuel-11941b1b9/",
+      icon: <img src={Navicon1} alt="LinkedIn" className="relative w-5 h-5" />,
+      label: "LinkedIn",
+    },
+    {
+      href: "https://github.com/Bishboy",
+      icon: <FaGithub className="text-white relative w-5 h-5" />,
+      label: "GitHub",
+    },
+    {
+      href: "https://x.com/iam_bishboy",
+      icon: <BsTwitterX className="text-white relative w-5 h-5" />,
+      label: "Twitter",
+    },
+  ];
 
   const headVariant = {
-    hidden: {
-      y: -20,
-      opacity: 0,
-    },
+    hidden: { y: -20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1,
-        type: "spring" as const,
+        duration: 0.8,
+        type: "spring",
         stiffness: 300,
+        damping: 20,
       },
     },
   };
 
+  const linkVariant = {
+    hover: {
+      scale: 1.05,
+      color: "#a855f7",
+      transition: { duration: 0.2 },
+    },
+    tap: { scale: 0.95 },
+  };
+
   return (
-    <header className="max-w-[1660px] mx-auto w-full">
+    <header className="w-full">
       <motion.nav
+        ref={navRef}
         variants={headVariant}
         initial="hidden"
         animate="visible"
-        className={`${
-          scroll ? "bg-black/80 backdrop-blur-lg z-50 fixed p-4 " : ""
-        } px-6 w-full flex items-center justify-between top-0 z-50 fixed p-4`}
+        className={`fixed top-0 w-full z-50 px-6 py-4 transition-all duration-300 ${
+          scroll
+            ? "bg-black/90 backdrop-blur-md shadow-lg"
+            : " "
+        }`}
       >
-        <h1 className="text-white md:text-2xl xl font-bold">EMMANUEL</h1>
+        <div className="max-w-[1660px] mx-auto flex items-center justify-between">
+          {/* Logo */}
+          <motion.h1
+            className="text-white text-xl md:text-2xl font-bold"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            EMMANUEL
+          </motion.h1>
 
-        {/* <img src={logo} alt="Logo" className="w-[3rem] h-[4rem]" /> f*/}
-        <div>
-          <span></span>
-        </div>
-        <MobileNavbar isOpen={isOpen} closeMenu={closeMenu} />
-        <ul className="lg:flex gap-[3rem] font-bold hidden">
-          <li
-            onClick={() => setActive("home")}
-            className={`${
-              active === "home"
-                ? "text-purple-500 opacity-[1] underline transition duration-1000 ease-in-out underline-offset-4 decoration-[0.3rem]"
-                : "text-white opacity-[0.75]"
-            }`}
-          >
-            <a href="#home">Home</a>
-          </li>
-          <li
-            onClick={() => setActive("skill")}
-            className={`${
-              active === "skill"
-                ? "text-purple-500 opacity-[1] transition duration-1000 ease-in-out underline underline-offset-4 decoration-[0.3rem]"
-                : "text-white opacity-[0.75]"
-            }`}
-          >
-            <a href="#skill">Skills</a>
-          </li>
-          <li
-            onClick={() => setActive("project")}
-            className={`${
-              active === "project"
-                ? "text-purple-500 underline underline-offset-4 transition duration-1000 ease-in-out opacity-[1] decoration-[0.3rem]"
-                : "text-white opacity-[0.75]"
-            }`}
-          >
-            <a href="#project">Projects</a>
-          </li>
-          <li
-            onClick={() => setActive("contact")}
-            className={`${
-              active === "contact"
-                ? "text-purple-500 underline underline-offset-4 transition duration-1000 ease-in-out opacity-[1] decoration-[0.3rem]"
-                : "text-white opacity-[0.75]"
-            }`}
-          >
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
+            <ul className="flex gap-8">
+              {navLinks.map((link) => (
+                <motion.li
+                  key={link.id}
+                  className={`relative ${
+                    active === link.id
+                      ? "text-purple-500"
+                      : "text-white/80 hover:text-white"
+                  } font-medium text-lg`}
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={linkVariant}
+                >
+                  <a href={`#${link.id}`} className="block py-2 px-1">
+                    {link.label}
+                    {active === link.id && (
+                      <motion.span
+                        className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500"
+                        layoutId="activeIndicator"
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
 
-        <div className="lg:flex items-center gap-[2rem] hidden">
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.linkedin.com/in/uduak-emmanuel-11941b1b9/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out flex items-center justify-center border-2 shadow-lg overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-              <img src={Navicon1} alt="LinkedIn" className="relative" />
-            </a>
-            <a
-            target="_blank"
-              href="https://github.com/Bishboy"
-              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out flex items-center justify-center border-2 shadow-lg overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-              <FaGithub className="text-white relative " />
-            </a>
-            <a
-              href="https://x.com/iam_bishboy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-[42px] h-[42px] relative group rounded-full duration-500 ease-in-out z-50 flex items-center justify-center border-2 shadow-lg overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-purple-500/60 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-in-out z-0"></div>
-              <BsTwitterX className="text-white relative"  />
-            </a>
+            {/* Social Links */}
+            <div className="flex items-center gap-4 ml-4">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 relative group rounded-full flex items-center justify-center border border-white/20 bg-white/5 backdrop-blur-sm"
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "rgba(168, 85, 247, 0.5)",
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+
+              {/* Connect Button */}
+              <motion.button
+                className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black font-medium group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a href="#contact" className="relative z-10">
+                  Let's Connect
+                </a>
+                <motion.div
+                  className="absolute inset-0 bg-purple-500 z-0"
+                  initial={{ x: "100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
+            </div>
           </div>
-          <button className="relative px-6 py-2 bg-white overflow-hidden rounded-lg text-black border border-black group hover:text-white">
-            <a href="#contact" className="relative font-bold z-50">
-              Let's Connect
-            </a>
-            <div className="absolute inset-0 bg-purple-500 transition-transform transform translate-x-full group-hover:translate-x-0 duration-500"></div>
-            <span className="absolute inset-0 z-20 text-black transition-colors duration-500 group-hover:text-white"></span>
-          </button>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            onClick={toggleMenu}
+            className="lg:hidden p-3 rounded-full bg-white/10 backdrop-blur-sm z-50"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? (
+              <FaTimes className="text-white text-xl" />
+            ) : (
+              <FaBars className="text-white text-xl" />
+            )}
+          </motion.button>
         </div>
-        <div className="bg-white p-3 lg:hidden z-40 px-3 flex items-baseline justify-center rounded-[50%]">
-          <button onClick={toggleMenu} className="relative rounded">
-            {isOpen ? <FaTimes /> : <FaBars />}
-          </button>
-        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <MobileNavbar
+              isOpen={isOpen}
+              closeMenu={closeMenu}
+              navLinks={navLinks}
+              active={active}
+              socialLinks={socialLinks}
+            />
+          )}
+        </AnimatePresence>
       </motion.nav>
     </header>
   );
