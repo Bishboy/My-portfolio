@@ -114,9 +114,7 @@ const Header = () => {
         initial="hidden"
         animate="visible"
         className={`fixed top-0 w-full z-50 px-6 py-4 transition-all duration-300 ${
-          scroll
-            ? "bg-black/90 backdrop-blur-md shadow-lg"
-            : " "
+          scroll ? "bg-black/90 backdrop-blur-md shadow-lg" : " "
         }`}
       >
         <div className="max-w-[1660px] mx-auto flex items-center justify-between">
@@ -126,7 +124,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            EMMANUEL
+            EMMANUEL <span className="text-purple-500">UDUAK</span>
           </motion.h1>
 
           {/* Desktop Navigation */}
