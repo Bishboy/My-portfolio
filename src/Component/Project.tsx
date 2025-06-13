@@ -92,6 +92,7 @@ const Project: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+      isMobile
     };
     handleResize();
     window.addEventListener("resize", handleResize);

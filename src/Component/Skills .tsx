@@ -56,7 +56,7 @@ const Skills = () => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
+isMobile
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
