@@ -12,8 +12,9 @@ import Contact from './Component/Contact'
 function App() {
   
   return (
-    <div className='max-w-[1660px] mx-auto w-full'>
+    <>
     <Header />
+    <div className='max-w-[1660px] mx-auto w-full'>
     <Banner />
     <Skills />
     <Project />
@@ -21,6 +22,7 @@ function App() {
     <Footer />
    {/* <MobileNavbar /> */}
     </div>
+    </>
   )
 }
 

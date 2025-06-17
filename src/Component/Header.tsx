@@ -107,7 +107,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full">
+    <header className="w-full ">
       <motion.nav
         ref={navRef}
         variants={headVariant}
