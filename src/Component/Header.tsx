@@ -107,17 +107,17 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full ">
+    <header className=" ">
       <motion.nav
         ref={navRef}
         variants={headVariant}
         initial="hidden"
         animate="visible"
-        className={`fixed top-0 w-full z-50 px-6 py-4 transition-all duration-300 ${
+        className={`fixed top-0 max-w-[1660px] mx-auto right-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300  ${
           scroll ? "bg-black/90 backdrop-blur-md shadow-lg" : " "
         }`}
       >
-        <div className="max-w-[1660px] mx-auto flex items-center justify-between">
+        <div className=" w-full flex items-center justify-between">
           {/* Logo */}
           <motion.h1
             className="text-white text-xl md:text-2xl font-bold"

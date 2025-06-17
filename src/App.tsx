@@ -14,7 +14,7 @@ function App() {
   return (
     <>
     <Header />
-    <div className='max-w-[1660px] mx-auto w-full'>
+    <div className='max-w-[1660px] mx-auto '>
     <Banner />
     <Skills />
     <Project />
