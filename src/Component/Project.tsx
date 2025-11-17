@@ -5,9 +5,11 @@ import disney from "../assets/img/disney.png";
 import Netflix from "../assets/img/netflix.png";
 import Dcabon from "../assets/img/dcarbon.png";
 import whistle from "../assets/img/whistle.png";
+import larengold from "../assets/img/larein.png"
 import gym from "../assets/img/gym.png";
 import Dashboard from "../assets/img/dashboard.png";
 import Assured from "../assets/img/Assured.png";
+import creeters from "../assets/img/critters.png"
 import { FaEye, FaGithub } from "react-icons/fa";
 
 type ProjectItem = {
@@ -22,6 +24,22 @@ type ProjectItem = {
 const data: ProjectItem[] = [
   {
     id: 1,
+    title: "Lareinegold",
+    description:
+      "Lareine Gold Consulting (LGC Africa) is a specialist advisory that helps African law firms and legal teams grow by adapting global marketing and business development strategies to the African market.",
+    image: larengold,
+    link: "https://www.lareinegold.com/",
+  },
+  {
+    id: 2,
+    title: "Critterscrew",
+    description:
+      "Critter's Crew is a collection of digital art with exclusive Critter's Crew NFT collection. Unique, powerful, and ready to be owned.",
+    image: creeters,
+    link: "https://critter-s-crew.vercel.app/",
+  },
+  {
+    id: 3,
     title: "Dcarbon",
     description:
       "A sustainability platform helping businesses reduce their carbon footprint through innovative solutions and tracking tools.",
@@ -29,7 +47,7 @@ const data: ProjectItem[] = [
     link: "https://dcarbon.solutions/",
   },
   {
-    id: 8,
+    id: 4,
     title: "Whistle",
     description:
       "A whistleblowing platform that enables secure and anonymous reporting of workplace misconduct and ethical violations.",
@@ -37,7 +55,7 @@ const data: ProjectItem[] = [
     link: "https://whistle-puce.vercel.app/",
   },
   {
-    id: 9,
+    id: 5,
     title: "AssuredTips",
     description:
       "Sports betting tips platform providing expert predictions and analysis for football matches worldwide.",
@@ -45,7 +63,7 @@ const data: ProjectItem[] = [
     link: "https://assured-tips-j7r3.vercel.app/",
   },
   {
-    id: 10,
+    id: 6,
     title: "FundCirkle DB",
     description:
       "Admin dashboard for managing investment funds, tracking performance metrics, and generating financial reports.",
@@ -53,7 +71,7 @@ const data: ProjectItem[] = [
     link: "https://circkle-admin.vercel.app/",
   },
   {
-    id: 3,
+    id: 7,
     title: "Beaches",
     description:
       "Travel platform showcasing the world's most beautiful beaches with booking functionality and user reviews.",
@@ -61,7 +79,7 @@ const data: ProjectItem[] = [
     link: "https://beaches-sigma.vercel.app/",
   },
   {
-    id: 4,
+    id: 8,
     title: "Gym Club",
     description:
       "Fitness platform offering workout plans, class schedules, and membership management for gym enthusiasts.",
@@ -69,7 +87,7 @@ const data: ProjectItem[] = [
     link: "https://gym-app-six-omega.vercel.app/",
   },
   {
-    id: 6,
+    id: 9,
     title: "Netflix Clone",
     description:
       "A functional clone of Netflix with movie browsing, trailers, and user profiles built with React and Firebase.",
@@ -77,7 +95,7 @@ const data: ProjectItem[] = [
     link: "https://netflix-clone-one-gules.vercel.app/",
   },
   {
-    id: 7,
+    id: 10,
     title: "Disney+ Clone",
     description:
       "Disney+ streaming service replica featuring Disney's content library with responsive design.",
