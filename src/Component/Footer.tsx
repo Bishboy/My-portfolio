@@ -55,8 +55,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#121212] w-full py-12 relative z-20 border-t border-gray-800">
-      <div className="container mx-auto px-4">
+    <footer className="relative w-full py-16 bg-gradient-to-b from-black via-gray-900 to-black border-t border-gray-800/50">
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 left-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           className="flex flex-col md:flex-row gap-8 justify-between items-center"
           initial="hidden"
@@ -67,11 +72,17 @@ const Footer = () => {
           {/* Name/Logo */}
           <motion.div variants={itemVariants}>
             <motion.h1
-              className="text-white text-2xl font-bold"
+              className="text-white text-2xl md:text-3xl font-bold tracking-tight"
               whileHover={{ scale: 1.05 }}
             >
-              EMMANUEL <span className="text-purple-500">UDUAK</span>
+              EMMANUEL <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">UDUAK</span>
             </motion.h1>
+            <motion.p
+              className="text-gray-400 text-sm mt-2"
+              variants={itemVariants}
+            >
+              Frontend Developer & Designer
+            </motion.p>
           </motion.div>
 
           {/* Social Links and Copyright */}
@@ -86,22 +97,22 @@ const Footer = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 relative group rounded-full duration-300 ease-in-out z-10 flex items-center justify-center border-2 border-white/20 shadow-lg overflow-hidden hover:border-purple-500"
-                  whileHover={{ y: -5 }}
+                  className="w-12 h-12 relative group rounded-lg duration-300 ease-in-out z-10 flex items-center justify-center border border-white/10 bg-white/5 backdrop-blur-sm shadow-lg overflow-hidden hover:border-purple-500/50"
+                  whileHover={{ y: -3, scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   variants={itemVariants}
                 >
                   <motion.div
-                    className={`absolute inset-0 ${link.color} rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out z-0`}
+                    className={`absolute inset-0 ${link.color} rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-in-out z-0`}
                     initial={{ scale: 0 }}
                     whileHover={{ scale: 1 }}
                   />
-                  {link.icon}
+                  <span className="relative z-10">{link.icon}</span>
                 </motion.a>
               ))}
             </motion.div>
 
-            <motion.p className="text-white/70 text-sm" variants={itemVariants}>
+            <motion.p className="text-gray-400 text-sm text-center md:text-right" variants={itemVariants}>
               &copy; {new Date().getFullYear()} Emmanuel Uduak. All Rights
               Reserved.
             </motion.p>
@@ -110,23 +121,25 @@ const Footer = () => {
 
         {/* Back to Top Button */}
         <motion.div
-          className="mt-8 flex justify-center"
+          className="mt-12 flex justify-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <motion.a
-            href="#top"
-            className="text-white/70 hover:text-purple-400 text-sm flex items-center gap-1 transition-colors"
-            whileHover={{ y: -2 }}
+            href="#home"
+            className="text-gray-400 hover:text-purple-400 text-sm flex items-center gap-2 transition-colors group"
+            whileHover={{ y: -3 }}
           >
             Back to Top
-            <svg
+            <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
             >
               <path
                 strokeLinecap="round"
@@ -134,7 +147,7 @@ const Footer = () => {
                 strokeWidth={2}
                 d="M5 15l7-7 7 7"
               />
-            </svg>
+            </motion.svg>
           </motion.a>
         </motion.div>
       </div>

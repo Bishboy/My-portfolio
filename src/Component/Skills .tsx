@@ -92,35 +92,35 @@ isMobile
   };
 
   return (
-    <section id="skill" className="relative py-16 overflow-hidden">
-      <div className="container mx-auto px-4 py-[2rem]" >
+    <section id="skill" className="relative py-20 overflow-hidden bg-gradient-to-b from-black via-purple-900/10 to-black">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Title Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-white uppercase"
-            whileHover={{ scale: 1.05 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
+            whileHover={{ scale: 1.02 }}
           >
-            My <span className="text-purple-400">Skills</span>
+            My <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Skills</span>
           </motion.h2>
 
           <motion.div
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-300 mb-4 text-sm md:text-base">
+            <p className="text-gray-300 mb-4 text-base md:text-lg leading-relaxed">
               {showFullText ? bioText : `${bioText.substring(0, 300)}...`}
               <button
                 onClick={() => setShowFullText(!showFullText)}
-                className="text-purple-400 ml-2 font-medium hover:underline focus:outline-none"
+                className="text-purple-400 ml-2 font-semibold hover:text-pink-400 transition-colors focus:outline-none underline decoration-purple-400/50 hover:decoration-pink-400"
               >
                 {showFullText ? "Show Less" : "Read More"}
               </button>
@@ -156,19 +156,20 @@ isMobile
                     custom={index}
                     className="h-full p-2"
                   >
-                    <Card className="bg-gray-900/50 border border-gray-700 hover:border-purple-500 transition-all duration-300 h-full group">
-                      <CardContent className="flex flex-col items-center justify-center p-6 h-full">
+                    <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 h-full group shadow-lg hover:shadow-purple-500/20">
+                      <CardContent className="flex flex-col items-center justify-center p-8 h-full">
                         <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          className="mb-6"
+                          whileHover={{ scale: 1.15, rotate: 5 }}
+                          className="mb-6 relative"
                         >
+                          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
                           <img
                             src={skill.image}
                             alt={skill.title}
-                            className="w-24 h-24 object-contain"
+                            className="w-28 h-28 object-contain relative z-10 filter drop-shadow-lg"
                           />
                         </motion.div>
-                        <motion.h3 className="text-xl font-semibold text-center text-white group-hover:text-purple-400 transition-colors">
+                        <motion.h3 className="text-xl font-bold text-center text-white group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                           {skill.title}
                         </motion.h3>
                       </CardContent>
@@ -178,20 +179,17 @@ isMobile
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="left-2 bg-gray-800/50 hover:bg-gray-700/70 border-none text-white" />
-            <CarouselNext className="right-2 bg-gray-800/50 hover:bg-gray-700/70 border-none text-white" />
+            <CarouselPrevious className="left-2 bg-gray-900/80 backdrop-blur-sm hover:bg-purple-600/80 border border-gray-700/50 hover:border-purple-500/50 text-white shadow-lg" />
+            <CarouselNext className="right-2 bg-gray-900/80 backdrop-blur-sm hover:bg-purple-600/80 border border-gray-700/50 hover:border-purple-500/50 text-white shadow-lg" />
           </Carousel>
         </motion.div>
       </div>
 
       {/* Background Elements */}
-      <motion.div
-        className="absolute inset-0 -z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-transparent"></div>
-      </motion.div>
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
     </section>
   );
 };

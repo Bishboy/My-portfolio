@@ -10,20 +10,19 @@ import Footer from './Component/Footer'
 import Contact from './Component/Contact'
 
 function App() {
-  
   return (
-    <>
-    <Header />
-    <div className='max-w-[1660px] mx-auto '>
-    <Banner />
-    <Skills />
-    <Project />
-    <Contact />
-    <Footer />
-   {/* <MobileNavbar /> */}
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Header />
+      <main className="relative">
+        <Banner />
+        <Skills />
+        <Project />
+        <Contact />
+      </main>
+      <Footer />
+      {/* <MobileNavbar /> */}
     </div>
-    </>
-  )
+  );
 }
 
 export default App

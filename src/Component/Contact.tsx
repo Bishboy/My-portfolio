@@ -128,8 +128,14 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="lg:py-[4rem] py-8 bg-gradient-to-b from-gray-900 to-gray-800 lg:mt-[4rem] mt-[2rem]"
+      className="relative py-20 overflow-hidden bg-gradient-to-b from-black via-purple-900/10 to-black"
     >
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
+      </div>
+
       <ToastContainer />
       <div className="w-[90%] max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 items-center gap-12">
         {/* Contact Image */}
@@ -138,12 +144,13 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="hidden lg:block"
+          className="hidden lg:block relative"
         >
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl rounded-full"></div>
           <img
             src={contactImg}
             alt="Contact"
-            className="w-full h-auto max-w-lg mx-auto"
+            className="w-full h-auto max-w-lg mx-auto relative z-10 drop-shadow-2xl"
           />
         </motion.div>
 
@@ -153,22 +160,22 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gray-800/50 p-8 rounded-2xl backdrop-blur-sm border border-gray-700 shadow-xl"
+          className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 p-8 lg:p-10 rounded-2xl backdrop-blur-sm border border-gray-700/50 shadow-2xl shadow-purple-500/10"
         >
           <motion.h1
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-center text-3xl font-bold text-white mb-2"
+            className="text-center text-4xl md:text-5xl font-bold text-white mb-3"
           >
-            Get in <span className="text-purple-400">Touch</span>
+            Get in <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Touch</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-center text-gray-300 mb-8"
+            className="text-center text-gray-300 mb-10 text-base md:text-lg"
           >
             Have a question or want to work together? Fill out the form below
             and I'll get back to you soon.
@@ -181,7 +188,7 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.6 }}
             className="flex flex-col gap-4"
           >
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
               <div>
                 <Input
                   type="text"
@@ -189,11 +196,11 @@ const Contact: React.FC = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   placeholder="First Name"
-                  className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full bg-gray-800/50 border-gray-600/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 rounded-lg"
                   required
                 />
                 {errors.firstName && (
-                  <p className="text-red-400 text-sm mt-1">
+                  <p className="text-red-400 text-sm mt-1.5">
                     {errors.firstName}
                   </p>
                 )}
@@ -205,11 +212,11 @@ const Contact: React.FC = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   placeholder="Last Name"
-                  className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full bg-gray-800/50 border-gray-600/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 rounded-lg"
                   required
                 />
                 {errors.lastName && (
-                  <p className="text-red-400 text-sm mt-1">{errors.lastName}</p>
+                  <p className="text-red-400 text-sm mt-1.5">{errors.lastName}</p>
                 )}
               </div>
             </div>
@@ -221,11 +228,11 @@ const Contact: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
-                className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full bg-gray-800/50 border-gray-600/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 rounded-lg"
                 required
               />
               {errors.email && (
-                <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                <p className="text-red-400 text-sm mt-1.5">{errors.email}</p>
               )}
             </div>
 
@@ -236,10 +243,10 @@ const Contact: React.FC = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone Number (Optional)"
-                className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full bg-gray-800/50 border-gray-600/50 text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 rounded-lg"
               />
               {errors.phone && (
-                <p className="text-red-400 text-sm mt-1">{errors.phone}</p>
+                <p className="text-red-400 text-sm mt-1.5">{errors.phone}</p>
               )}
             </div>
 
@@ -250,19 +257,19 @@ const Contact: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message"
-                className="w-full bg-gray-700 border border-gray-600 text-white placeholder-gray-400 rounded-md px-3 py-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full bg-gray-800/50 border border-gray-600/50 text-white placeholder-gray-400 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 resize-none"
                 required
               />
               {errors.message && (
-                <p className="text-red-400 text-sm mt-1">{errors.message}</p>
+                <p className="text-red-400 text-sm mt-1.5">{errors.message}</p>
               )}
             </div>
 
             <motion.button
               type="submit"
-              className="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-full transition-colors mt-4"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 mt-2 shadow-lg shadow-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
+              whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(168, 85, 247, 0.4)" }}
+              whileTap={{ scale: 0.98 }}
               disabled={isSubmitting}
             >
               {isSubmitting ? (
