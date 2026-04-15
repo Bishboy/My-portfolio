@@ -71,7 +71,7 @@ const data: ProjectItem[] = [
     description:
       "Sports betting tips platform providing expert predictions and analysis for football matches worldwide.",
     image: Assured,
-    link: "https://assured-tips-j7r3.vercel.app/",
+    link: "https://www.realassuredtips.com/",
   },
   {
     id: 7,
