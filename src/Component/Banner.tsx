@@ -134,6 +134,7 @@ const Banner: React.FC = () => {
             </motion.a>
 
             <motion.button
+              type="button"
               onClick={() => setOpenModal(true)}
               className="relative px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/20 overflow-hidden rounded-lg text-white font-semibold text-sm sm:text-base group hover:border-purple-500/50 transition-all duration-300 w-full sm:w-auto shadow-lg"
               whileHover={{ scale: 1.05 }}
